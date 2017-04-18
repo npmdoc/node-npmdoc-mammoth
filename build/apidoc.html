@@ -1,0 +1,4157 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/mwilliamson/mammoth.js#readme"
+
+    >mammoth (v1.3.5)</a>
+</h1>
+<h4>Convert Word documents from docx to simple HTML and Markdown</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth">module mammoth</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.convert">
+            function <span class="apidocSignatureSpan">mammoth.</span>convert
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.convertToHtml">
+            function <span class="apidocSignatureSpan">mammoth.</span>convertToHtml
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.convertToMarkdown">
+            function <span class="apidocSignatureSpan">mammoth.</span>convertToMarkdown
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.embedStyleMap">
+            function <span class="apidocSignatureSpan">mammoth.</span>embedStyleMap
+            <span class="apidocSignatureSpan">(input, styleMap)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.extractRawText">
+            function <span class="apidocSignatureSpan">mammoth.</span>extractRawText
+            <span class="apidocSignatureSpan">(input)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.images.imgElement">
+            function <span class="apidocSignatureSpan">mammoth.</span>images.imgElement
+            <span class="apidocSignatureSpan">(func)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.main">
+            function <span class="apidocSignatureSpan">mammoth.</span>main
+            <span class="apidocSignatureSpan">(argv)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.readEmbeddedStyleMap">
+            function <span class="apidocSignatureSpan">mammoth.</span>readEmbeddedStyleMap
+            <span class="apidocSignatureSpan">(input)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.styleMapping">
+            function <span class="apidocSignatureSpan">mammoth.</span>styleMapping
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms._elements">
+            function <span class="apidocSignatureSpan">mammoth.</span>transforms._elements
+            <span class="apidocSignatureSpan">(transform)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms.getDescendants">
+            function <span class="apidocSignatureSpan">mammoth.</span>transforms.getDescendants
+            <span class="apidocSignatureSpan">(element)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms.getDescendantsOfType">
+            function <span class="apidocSignatureSpan">mammoth.</span>transforms.getDescendantsOfType
+            <span class="apidocSignatureSpan">(element, type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms.paragraph">
+            function <span class="apidocSignatureSpan">mammoth.</span>transforms.paragraph
+            <span class="apidocSignatureSpan">(transform)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms.run">
+            function <span class="apidocSignatureSpan">mammoth.</span>transforms.run
+            <span class="apidocSignatureSpan">(transform)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.underline.element">
+            function <span class="apidocSignatureSpan">mammoth.</span>underline.element
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.</span>document_to_html</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.</span>documents</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.</span>images</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.</span>mammoth_browser</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.</span>options_reader</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.</span>promises</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.</span>results</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.</span>style_reader</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.</span>transforms</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.</span>underline</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.</span>unzip</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.</span>zipfile</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.convert">module mammoth.convert</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.convert.convert">
+            function <span class="apidocSignatureSpan">mammoth.</span>convert
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.convertToHtml">module mammoth.convertToHtml</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.convertToHtml.convertToHtml">
+            function <span class="apidocSignatureSpan">mammoth.</span>convertToHtml
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.convertToMarkdown">module mammoth.convertToMarkdown</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.convertToMarkdown.convertToMarkdown">
+            function <span class="apidocSignatureSpan">mammoth.</span>convertToMarkdown
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.document_to_html">module mammoth.document_to_html</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.document_to_html.DocumentConverter">
+            function <span class="apidocSignatureSpan">mammoth.document_to_html.</span>DocumentConverter
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.document_to_html.commentAuthorLabel">
+            function <span class="apidocSignatureSpan">mammoth.document_to_html.</span>commentAuthorLabel
+            <span class="apidocSignatureSpan">(comment)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.documents">module mammoth.documents</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.BookmarkStart">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>BookmarkStart
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.Document">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>Document
+            <span class="apidocSignatureSpan">(children, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.Hyperlink">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>Hyperlink
+            <span class="apidocSignatureSpan">(children, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.Image">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>Image
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.Note">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>Note
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.NoteReference">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>NoteReference
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.Notes">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>Notes
+            <span class="apidocSignatureSpan">(notes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.Paragraph">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>Paragraph
+            <span class="apidocSignatureSpan">(children, properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.Run">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>Run
+            <span class="apidocSignatureSpan">(children, properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.Tab">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>Tab
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.Table">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>Table
+            <span class="apidocSignatureSpan">(children)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.TableCell">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>TableCell
+            <span class="apidocSignatureSpan">(children, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.TableRow">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>TableRow
+            <span class="apidocSignatureSpan">(children)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.Text">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>Text
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.comment">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>comment
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.commentReference">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>commentReference
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.document">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>document
+            <span class="apidocSignatureSpan">(children, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.noteReference">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>noteReference
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.paragraph">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>paragraph
+            <span class="apidocSignatureSpan">(children, properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.run">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>run
+            <span class="apidocSignatureSpan">(children, properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.documents.tab">
+            function <span class="apidocSignatureSpan">mammoth.documents.</span>tab
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.documents.</span>columnBreak</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.documents.</span>lineBreak</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.documents.</span>pageBreak</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.documents.</span>types</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.documents.</span>verticalAlignment</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.embedStyleMap">module mammoth.embedStyleMap</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.embedStyleMap.embedStyleMap">
+            function <span class="apidocSignatureSpan">mammoth.</span>embedStyleMap
+            <span class="apidocSignatureSpan">(input, styleMap)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.extractRawText">module mammoth.extractRawText</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.extractRawText.extractRawText">
+            function <span class="apidocSignatureSpan">mammoth.</span>extractRawText
+            <span class="apidocSignatureSpan">(input)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.images">module mammoth.images</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.images.imgElement">
+            function <span class="apidocSignatureSpan">mammoth.images.</span>imgElement
+            <span class="apidocSignatureSpan">(func)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.images.inline">
+            function <span class="apidocSignatureSpan">mammoth.images.</span>inline
+            <span class="apidocSignatureSpan">(func)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.images.imgElement">module mammoth.images.imgElement</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.images.imgElement.imgElement">
+            function <span class="apidocSignatureSpan">mammoth.images.</span>imgElement
+            <span class="apidocSignatureSpan">(func)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.main">module mammoth.main</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.main.main">
+            function <span class="apidocSignatureSpan">mammoth.</span>main
+            <span class="apidocSignatureSpan">(argv)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.mammoth_browser">module mammoth.mammoth_browser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.mammoth_browser.convert">
+            function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>convert
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.mammoth_browser.convertToHtml">
+            function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>convertToHtml
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.mammoth_browser.convertToMarkdown">
+            function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>convertToMarkdown
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.mammoth_browser.embedStyleMap">
+            function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>embedStyleMap
+            <span class="apidocSignatureSpan">(input, styleMap)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.mammoth_browser.extractRawText">
+            function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>extractRawText
+            <span class="apidocSignatureSpan">(input)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.mammoth_browser.readEmbeddedStyleMap">
+            function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>readEmbeddedStyleMap
+            <span class="apidocSignatureSpan">(input)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.mammoth_browser.styleMapping">
+            function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>styleMapping
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>images</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>transforms</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>underline</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.options_reader">module mammoth.options_reader</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.options_reader.readOptions">
+            function <span class="apidocSignatureSpan">mammoth.options_reader.</span>readOptions
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.options_reader.</span>_defaultStyleMap</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mammoth.options_reader.</span>_standardOptions</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.promises">module mammoth.promises</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.promises.all">
+            function <span class="apidocSignatureSpan">mammoth.promises.</span>all
+            <span class="apidocSignatureSpan">(promises)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.promises.attempt">
+            function <span class="apidocSignatureSpan">mammoth.promises.</span>attempt
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.promises.defer">
+            function <span class="apidocSignatureSpan">mammoth.promises.</span>defer
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.promises.mapSeries">
+            function <span class="apidocSignatureSpan">mammoth.promises.</span>mapSeries
+            <span class="apidocSignatureSpan">(promises, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.promises.nfcall">
+            function <span class="apidocSignatureSpan">mammoth.promises.</span>nfcall
+            <span class="apidocSignatureSpan">(func)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.promises.promisify">
+            function <span class="apidocSignatureSpan">mammoth.promises.</span>promisify
+            <span class="apidocSignatureSpan">(fn, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.promises.props">
+            function <span class="apidocSignatureSpan">mammoth.promises.</span>props
+            <span class="apidocSignatureSpan">(promises)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.promises.reject">
+            function <span class="apidocSignatureSpan">mammoth.promises.</span>reject
+            <span class="apidocSignatureSpan">(reason)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.promises.resolve">
+            function <span class="apidocSignatureSpan">mammoth.promises.</span>resolve
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.promises.when">
+            function <span class="apidocSignatureSpan">mammoth.promises.</span>when
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.readEmbeddedStyleMap">module mammoth.readEmbeddedStyleMap</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.readEmbeddedStyleMap.readEmbeddedStyleMap">
+            function <span class="apidocSignatureSpan">mammoth.</span>readEmbeddedStyleMap
+            <span class="apidocSignatureSpan">(input)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.results">module mammoth.results</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.results.Result">
+            function <span class="apidocSignatureSpan">mammoth.results.</span>Result
+            <span class="apidocSignatureSpan">(value, messages)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.results.error">
+            function <span class="apidocSignatureSpan">mammoth.results.</span>error
+            <span class="apidocSignatureSpan">(exception)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.results.success">
+            function <span class="apidocSignatureSpan">mammoth.results.</span>success
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.results.warning">
+            function <span class="apidocSignatureSpan">mammoth.results.</span>warning
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.styleMapping">module mammoth.styleMapping</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.styleMapping.styleMapping">
+            function <span class="apidocSignatureSpan">mammoth.</span>styleMapping
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.style_reader">module mammoth.style_reader</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.style_reader.readDocumentMatcher">
+            function <span class="apidocSignatureSpan">mammoth.style_reader.</span>readDocumentMatcher
+            <span class="apidocSignatureSpan">(string)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.style_reader.readHtmlPath">
+            function <span class="apidocSignatureSpan">mammoth.style_reader.</span>readHtmlPath
+            <span class="apidocSignatureSpan">(string)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.style_reader.readStyle">
+            function <span class="apidocSignatureSpan">mammoth.style_reader.</span>readStyle
+            <span class="apidocSignatureSpan">(string)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.transforms">module mammoth.transforms</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms._elements">
+            function <span class="apidocSignatureSpan">mammoth.transforms.</span>_elements
+            <span class="apidocSignatureSpan">(transform)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms.getDescendants">
+            function <span class="apidocSignatureSpan">mammoth.transforms.</span>getDescendants
+            <span class="apidocSignatureSpan">(element)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms.getDescendantsOfType">
+            function <span class="apidocSignatureSpan">mammoth.transforms.</span>getDescendantsOfType
+            <span class="apidocSignatureSpan">(element, type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms.paragraph">
+            function <span class="apidocSignatureSpan">mammoth.transforms.</span>paragraph
+            <span class="apidocSignatureSpan">(transform)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms.run">
+            function <span class="apidocSignatureSpan">mammoth.transforms.</span>run
+            <span class="apidocSignatureSpan">(transform)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.transforms._elements">module mammoth.transforms._elements</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms._elements._elements">
+            function <span class="apidocSignatureSpan">mammoth.transforms.</span>_elements
+            <span class="apidocSignatureSpan">(transform)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.transforms.getDescendants">module mammoth.transforms.getDescendants</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms.getDescendants.getDescendants">
+            function <span class="apidocSignatureSpan">mammoth.transforms.</span>getDescendants
+            <span class="apidocSignatureSpan">(element)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.transforms.getDescendantsOfType">module mammoth.transforms.getDescendantsOfType</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms.getDescendantsOfType.getDescendantsOfType">
+            function <span class="apidocSignatureSpan">mammoth.transforms.</span>getDescendantsOfType
+            <span class="apidocSignatureSpan">(element, type)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.transforms.paragraph">module mammoth.transforms.paragraph</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms.paragraph.paragraph">
+            function <span class="apidocSignatureSpan">mammoth.transforms.</span>paragraph
+            <span class="apidocSignatureSpan">(transform)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.transforms.run">module mammoth.transforms.run</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.transforms.run.run">
+            function <span class="apidocSignatureSpan">mammoth.transforms.</span>run
+            <span class="apidocSignatureSpan">(transform)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.underline">module mammoth.underline</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.underline.element">
+            function <span class="apidocSignatureSpan">mammoth.underline.</span>element
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.underline.element">module mammoth.underline.element</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.underline.element.element">
+            function <span class="apidocSignatureSpan">mammoth.underline.</span>element
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.unzip">module mammoth.unzip</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.unzip.openZip">
+            function <span class="apidocSignatureSpan">mammoth.unzip.</span>openZip
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mammoth.zipfile">module mammoth.zipfile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mammoth.zipfile.openArrayBuffer">
+            function <span class="apidocSignatureSpan">mammoth.zipfile.</span>openArrayBuffer
+            <span class="apidocSignatureSpan">(arrayBuffer)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth" id="apidoc.module.mammoth">module mammoth</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.convert" id="apidoc.element.mammoth.convert">
+        function <span class="apidocSignatureSpan">mammoth.</span>convert
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function convert(input, options) {
+    options = readOptions(options);
+
+    return unzip.openZip(input)
+        .tap(function(docxFile) {
+            return docxStyleMap.readStyleMap(docxFile).then(function(styleMap) {
+                options.embeddedStyleMap = styleMap;
+            });
+        })
+        .then(function(docxFile) {
+            return docxReader.read(docxFile, input)
+                .then(function(documentResult) {
+                    return documentResult.map(options.transformDocument);
+                })
+                .then(function(documentResult) {
+                    return convertDocumentToHtml(documentResult, options);
+                });
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            return promises.nfcall(fs.writeFile, imagePath, imageBuffer);
+        }).then(function() {
+            return {src: filename};
+        });
+    });
+}
+
+return mammoth.<span class="apidocCodeKeywordSpan">convert</span>({path: docxPath}, options)
+    .then(function(result) {
+        result.messages.forEach(function(message) {
+            process.stderr.write(message.message);
+            process.stderr.write(&#x22;\n&#x22;);
+        });
+
+        var outputStream = outputPath ? fs.createWriteStream(outputPath) : process.stdout;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.convertToHtml" id="apidoc.element.mammoth.convertToHtml">
+        function <span class="apidocSignatureSpan">mammoth.</span>convertToHtml
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function convertToHtml(input, options) {
+    return convert(input, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### Basic conversion
+
+To convert an existing .docx file to HTML, use `mammoth.convertToHtml`:
+
+```javascript
+var mammoth = require(&#x22;mammoth&#x22;);
+
+mammoth.<span class="apidocCodeKeywordSpan">convertToHtml</span>({path: &#x22;path/to/document.docx&#x22;})
+    .then(function(result){
+        var html = result.value; // The generated HTML
+        var messages = result.messages; // Any messages, such as warnings during conversion
+    })
+    .done();
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.convertToMarkdown" id="apidoc.element.mammoth.convertToMarkdown">
+        function <span class="apidocSignatureSpan">mammoth.</span>convertToMarkdown
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function convertToMarkdown(input, options) {
+    var markdownOptions = Object.create(options || {});
+    markdownOptions.outputFormat = &#x22;markdown&#x22;;
+    return convert(input, markdownOptions);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Returns a promise containing a result.
+  This result has the following properties:
+
+  * `value`: the generated HTML
+
+  * `messages`: any messages, such as errors and warnings, generated during the conversion
+
+#### `mammoth.<span class="apidocCodeKeywordSpan">convertToMarkdown</span>(input, options)`
+
+Converts the source document to Markdown.
+This behaves the same as `convertToHtml`,
+except that the `value` property of the result contains Markdown rather than HTML.
+
+#### `mammoth.extractRawText(input)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.embedStyleMap" id="apidoc.element.mammoth.embedStyleMap">
+        function <span class="apidocSignatureSpan">mammoth.</span>embedStyleMap
+        <span class="apidocSignatureSpan">(input, styleMap)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function embedStyleMap(input, styleMap) {
+    return unzip.openZip(input)
+        .tap(function(docxFile) {
+            return docxStyleMap.writeStyleMap(docxFile, styleMap);
+        })
+        .then(function(docxFile) {
+            return {
+                toBuffer: docxFile.toBuffer
+            };
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Returns a promise containing a result.
+  This result has the following properties:
+
+  * `value`: the raw text
+
+  * `messages`: any messages, such as errors and warnings
+
+#### `mammoth.<span class="apidocCodeKeywordSpan">embedStyleMap</span>(input, styleMap)`
+
+Given an existing docx file,
+`embedStyleMap` will generate a new docx file with the passed style map embedded.
+When the new docx file is read by Mammoth,
+it will use the embedded style map.
+
+* `input`: an object describing the source document.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.extractRawText" id="apidoc.element.mammoth.extractRawText">
+        function <span class="apidocSignatureSpan">mammoth.</span>extractRawText
+        <span class="apidocSignatureSpan">(input)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extractRawText(input) {
+    return unzip.openZip(input)
+        .then(docxReader.read)
+        .then(function(documentResult) {
+            return documentResult.map(convertElementToRawText);
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Note that `mammoth.convertToHtml` returns a [promise](http://promises-aplus.github.io/promises-spec/).
+
+You can also extract the raw text of the document by using `mammoth.extractRawText`.
+This will ignore all formatting in the document.
+Each paragraph is followed by two newlines.
+
+```javascript
+mammoth.<span class="apidocCodeKeywordSpan">extractRawText</span>({path: &#x22;path/to/document.docx&#x22;})
+    .then(function(result){
+        var text = result.value; // The raw text
+        var messages = result.messages;
+    })
+    .done();
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.images.imgElement" id="apidoc.element.mammoth.images.imgElement">
+        function <span class="apidocSignatureSpan">mammoth.</span>images.imgElement
+        <span class="apidocSignatureSpan">(func)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">images.imgElement = function (func) {
+    return function(element, messages) {
+        return promises.when(func(element)).then(function(result) {
+            var attributes = _.clone(result);
+            if (element.altText) {
+                attributes.alt = element.altText;
+            }
+            return [Html.freshElement(&#x22;img&#x22;, attributes)];
+        });
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+By default, images are converted to `&#x3c;img&#x3e;` elements with the source included inline in the `src` attribute.
+This behaviour can be changed by setting the `convertImage` option to an [image converter](#image-converters) .
+
+For instance, the following would replicate the default behaviour:
+
+```javascript
+var options = {
+    convertImage: mammoth.<span class="apidocCodeKeywordSpan">images.imgElement</span>(function(image) {
+        return image.read(&#x22;base64&#x22;).then(function(imageBuffer) {
+            return {
+                src: &#x22;data:&#x22; + image.contentType + &#x22;;base64,&#x22; + imageBuffer
+            };
+        });
+    })
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.main" id="apidoc.element.mammoth.main">
+        function <span class="apidocSignatureSpan">mammoth.</span>main
+        <span class="apidocSignatureSpan">(argv)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function main(argv) {
+    var docxPath = argv[&#x22;docx-path&#x22;];
+    var outputPath = argv[&#x22;output-path&#x22;];
+    var outputDir = argv.output_dir;
+    var outputFormat = argv.output_format;
+    var styleMapPath = argv.style_map;
+
+    readStyleMap(styleMapPath).then(function(styleMap) {
+        var options = {
+            styleMap: styleMap,
+            outputFormat: outputFormat
+        };
+
+        if (outputDir) {
+            var basename = path.basename(docxPath, &#x22;.docx&#x22;);
+            outputPath = path.join(outputDir, basename + &#x22;.html&#x22;);
+            var imageIndex = 0;
+            options.convertImage = images.imgElement(function(element) {
+                imageIndex++;
+                var extension = element.contentType.split(&#x22;/&#x22;)[1];
+                var filename = imageIndex + &#x22;.&#x22; + extension;
+
+                return element.read().then(function(imageBuffer) {
+                    var imagePath = path.join(outputDir, filename);
+                    return promises.nfcall(fs.writeFile, imagePath, imageBuffer);
+                }).then(function() {
+                    return {src: filename};
+                });
+            });
+        }
+
+        return mammoth.convert({path: docxPath}, options)
+            .then(function(result) {
+                result.messages.forEach(function(message) {
+                    process.stderr.write(message.message);
+                    process.stderr.write(&#x22;\n&#x22;);
+                });
+
+                var outputStream = outputPath ? fs.createWriteStream(outputPath) : process.stdout;
+
+                outputStream.write(result.value);
+            });
+    }).done();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.readEmbeddedStyleMap" id="apidoc.element.mammoth.readEmbeddedStyleMap">
+        function <span class="apidocSignatureSpan">mammoth.</span>readEmbeddedStyleMap
+        <span class="apidocSignatureSpan">(input)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readEmbeddedStyleMap(input) {
+    return unzip.openZip(input)
+        .then(docxStyleMap.readStyleMap);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.styleMapping" id="apidoc.element.mammoth.styleMapping">
+        function <span class="apidocSignatureSpan">mammoth.</span>styleMapping
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">styleMapping = function () {
+    throw new Error(&#x27;Use a raw string instead of mammoth.styleMapping e.g. &#x22;p[style-name=\&#x27;Title\&#x27;] =&#x3e; h1&#x22; instead of mammoth.styleMapping
+(&#x22;p[style-name=\&#x27;Title\&#x27;] =&#x3e; h1&#x22;)&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+* Set the `styleId` property instead of the `styleName` property
+
+* Set the `styleName` property to the name of the style, rather than the ID
+
+### 0.2.0
+
+The function `mammoth.style()` was renamed to `mammoth.<span class="apidocCodeKeywordSpan">styleMapping</span>()`.
+
+## Acknowledgements
+
+Thanks to the following people for their contributions to Mammoth:
+
+* [Craig Leinoff](https://github.com/Offlein):
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms._elements" id="apidoc.element.mammoth.transforms._elements">
+        function <span class="apidocSignatureSpan">mammoth.</span>transforms._elements
+        <span class="apidocSignatureSpan">(transform)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function elements(transform) {
+    return function transformElement(element) {
+        if (element.children) {
+            var children = _.map(element.children, transformElement);
+            element = _.extend(element, {children: children});
+        }
+        return transform(element);
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms.getDescendants" id="apidoc.element.mammoth.transforms.getDescendants">
+        function <span class="apidocSignatureSpan">mammoth.</span>transforms.getDescendants
+        <span class="apidocSignatureSpan">(element)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getDescendants(element) {
+    var descendants = [];
+
+    visitDescendants(element, function(descendant) {
+        descendants.push(descendant);
+    });
+
+    return descendants;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### `mammoth.transforms.run(transformRun)`
+
+Returns a function that can be used as the `transformDocument` option.
+This will apply the function `transformRun` to each run element.
+`transformRun` should return the new run.
+
+#### `mammoth.<span class="apidocCodeKeywordSpan">transforms.getDescendants</span>(element)`
+
+Gets all descendants of an element.
+
+#### `mammoth.transforms.getDescendantsOfType(element, type)`
+
+Gets all descendants of a particular type of an element.
+For instance, to get all runs within an element `paragraph`:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms.getDescendantsOfType" id="apidoc.element.mammoth.transforms.getDescendantsOfType">
+        function <span class="apidocSignatureSpan">mammoth.</span>transforms.getDescendantsOfType
+        <span class="apidocSignatureSpan">(element, type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getDescendantsOfType(element, type) {
+    return getDescendants(element).filter(function(descendant) {
+        return descendant.type === type;
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+```
+
+Or if you want paragraphs that have been explicitly set to use monospace fonts to represent code:
+
+```javascript
+function transformParagraph(paragraph) {
+var runs = mammoth.<span class="apidocCodeKeywordSpan">transforms.getDescendantsOfType</span>(paragraph, &#x22;run&#x22;);
+var isMatch = runs.length &#x3e; 0 &#x26;&#x26; runs.every(function(run) {
+    return run.font &#x26;&#x26; fonts.indexOf(run.font.toLowerCase()) !== -1;
+});
+if (isMatch) {
+    return {
+        ...paragraph,
+        styleId: &#x22;code&#x22;,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms.paragraph" id="apidoc.element.mammoth.transforms.paragraph">
+        function <span class="apidocSignatureSpan">mammoth.</span>transforms.paragraph
+        <span class="apidocSignatureSpan">(transform)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function paragraph(transform) {
+    return elementsOfType(&#x22;paragraph&#x22;, transform);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return {...element, styleId: &#x22;Heading2&#x22;};
+    } else {
+        return element;
+    }
+}
+
+var options = {
+    transformDocument: mammoth.<span class="apidocCodeKeywordSpan">transforms.paragraph</span>(transformParagraph)
+};
+```
+
+Or if you want paragraphs that have been explicitly set to use monospace fonts to represent code:
+
+```javascript
+function transformParagraph(paragraph) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms.run" id="apidoc.element.mammoth.transforms.run">
+        function <span class="apidocSignatureSpan">mammoth.</span>transforms.run
+        <span class="apidocSignatureSpan">(transform)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function run(transform) {
+    return elementsOfType(&#x22;run&#x22;, transform);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### `mammoth.transforms.paragraph(transformParagraph)`
+
+Returns a function that can be used as the `transformDocument` option.
+This will apply the function `transformParagraph` to each paragraph element.
+`transformParagraph` should return the new paragraph.
+
+#### `mammoth.<span class="apidocCodeKeywordSpan">transforms.run</span>(transformRun)`
+
+Returns a function that can be used as the `transformDocument` option.
+This will apply the function `transformRun` to each run element.
+`transformRun` should return the new run.
+
+#### `mammoth.transforms.getDescendants(element)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.underline.element" id="apidoc.element.mammoth.underline.element">
+        function <span class="apidocSignatureSpan">mammoth.</span>underline.element
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function element(name) {
+    return function(html) {
+        return Html.elementWithTag(htmlPaths.element(name), [html]);
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.convert" id="apidoc.module.mammoth.convert">module mammoth.convert</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.convert.convert" id="apidoc.element.mammoth.convert.convert">
+        function <span class="apidocSignatureSpan">mammoth.</span>convert
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function convert(input, options) {
+    options = readOptions(options);
+
+    return unzip.openZip(input)
+        .tap(function(docxFile) {
+            return docxStyleMap.readStyleMap(docxFile).then(function(styleMap) {
+                options.embeddedStyleMap = styleMap;
+            });
+        })
+        .then(function(docxFile) {
+            return docxReader.read(docxFile, input)
+                .then(function(documentResult) {
+                    return documentResult.map(options.transformDocument);
+                })
+                .then(function(documentResult) {
+                    return convertDocumentToHtml(documentResult, options);
+                });
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            return promises.nfcall(fs.writeFile, imagePath, imageBuffer);
+        }).then(function() {
+            return {src: filename};
+        });
+    });
+}
+
+return mammoth.<span class="apidocCodeKeywordSpan">convert</span>({path: docxPath}, options)
+    .then(function(result) {
+        result.messages.forEach(function(message) {
+            process.stderr.write(message.message);
+            process.stderr.write(&#x22;\n&#x22;);
+        });
+
+        var outputStream = outputPath ? fs.createWriteStream(outputPath) : process.stdout;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.convertToHtml" id="apidoc.module.mammoth.convertToHtml">module mammoth.convertToHtml</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.convertToHtml.convertToHtml" id="apidoc.element.mammoth.convertToHtml.convertToHtml">
+        function <span class="apidocSignatureSpan">mammoth.</span>convertToHtml
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function convertToHtml(input, options) {
+    return convert(input, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### Basic conversion
+
+To convert an existing .docx file to HTML, use `mammoth.convertToHtml`:
+
+```javascript
+var mammoth = require(&#x22;mammoth&#x22;);
+
+mammoth.<span class="apidocCodeKeywordSpan">convertToHtml</span>({path: &#x22;path/to/document.docx&#x22;})
+    .then(function(result){
+        var html = result.value; // The generated HTML
+        var messages = result.messages; // Any messages, such as warnings during conversion
+    })
+    .done();
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.convertToMarkdown" id="apidoc.module.mammoth.convertToMarkdown">module mammoth.convertToMarkdown</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.convertToMarkdown.convertToMarkdown" id="apidoc.element.mammoth.convertToMarkdown.convertToMarkdown">
+        function <span class="apidocSignatureSpan">mammoth.</span>convertToMarkdown
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function convertToMarkdown(input, options) {
+    var markdownOptions = Object.create(options || {});
+    markdownOptions.outputFormat = &#x22;markdown&#x22;;
+    return convert(input, markdownOptions);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Returns a promise containing a result.
+  This result has the following properties:
+
+  * `value`: the generated HTML
+
+  * `messages`: any messages, such as errors and warnings, generated during the conversion
+
+#### `mammoth.<span class="apidocCodeKeywordSpan">convertToMarkdown</span>(input, options)`
+
+Converts the source document to Markdown.
+This behaves the same as `convertToHtml`,
+except that the `value` property of the result contains Markdown rather than HTML.
+
+#### `mammoth.extractRawText(input)`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.document_to_html" id="apidoc.module.mammoth.document_to_html">module mammoth.document_to_html</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.document_to_html.DocumentConverter" id="apidoc.element.mammoth.document_to_html.DocumentConverter">
+        function <span class="apidocSignatureSpan">mammoth.document_to_html.</span>DocumentConverter
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DocumentConverter(options) {
+    return {
+        convertToHtml: function(element) {
+            var comments = _.indexBy(
+                element.type === documents.types.document ? element.comments : [],
+                &#x22;commentId&#x22;
+            );
+            var conversion = new DocumentConversion(options, comments);
+            return conversion.convertToHtml(element);
+        }
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.document_to_html.commentAuthorLabel" id="apidoc.element.mammoth.document_to_html.commentAuthorLabel">
+        function <span class="apidocSignatureSpan">mammoth.document_to_html.</span>commentAuthorLabel
+        <span class="apidocSignatureSpan">(comment)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function commentAuthorLabel(comment) {
+    return comment.authorInitials || &#x22;&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.documents" id="apidoc.module.mammoth.documents">module mammoth.documents</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.BookmarkStart" id="apidoc.element.mammoth.documents.BookmarkStart">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>BookmarkStart
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function BookmarkStart(options) {
+    return {
+        type: types.bookmarkStart,
+        name: options.name
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+},
+&#x22;w:bookmarkStart&#x22;: function(element){
+    var name = element.attributes[&#x22;w:name&#x22;];
+    if (name === &#x22;_GoBack&#x22;) {
+        return emptyResult();
+    } else {
+        return elementResult(new documents.<span class="apidocCodeKeywordSpan">BookmarkStart</span>({name: name}));
+    }
+},
+
+&#x22;mc:AlternateContent&#x22;: function(element) {
+    return readChildElements(element.first(&#x22;mc:Fallback&#x22;));
+},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.Document" id="apidoc.element.mammoth.documents.Document">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>Document
+        <span class="apidocSignatureSpan">(children, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Document(children, options) {
+    options = options || {};
+    return {
+        type: types.document,
+        children: children,
+        notes: options.notes || new Notes({}),
+        comments: options.comments || []
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var bodyReader = options.bodyReader;
+
+function convertXmlToDocument(element) {
+    var body = element.first(&#x22;w:body&#x22;);
+
+    var result = bodyReader.readXmlElements(body.children)
+        .map(function(children) {
+            return new documents.<span class="apidocCodeKeywordSpan">Document</span>(children, {
+                notes: options.notes,
+                comments: options.comments
+            });
+        });
+    return new Result(result.value, result.messages);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.Hyperlink" id="apidoc.element.mammoth.documents.Hyperlink">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>Hyperlink
+        <span class="apidocSignatureSpan">(children, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Hyperlink(children, options) {
+    return {
+        type: types.hyperlink,
+        children: children,
+        href: options.href,
+        anchor: options.anchor
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return readXmlElements(element.children)
+        .map(function(children) {
+            var properties = _.find(children, isRunProperties);
+            children = children.filter(negate(isRunProperties));
+
+            var hyperlinkHref = currentHyperlinkHref();
+            if (hyperlinkHref !== null) {
+                children = [new documents.<span class="apidocCodeKeywordSpan">Hyperlink</span>(children, {href: hyperlinkHref})];
+            }
+
+            return new documents.Run(children, properties);
+        });
+},
+&#x22;w:rPr&#x22;: readRunProperties,
+&#x22;w:fldChar&#x22;: readFldChar,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.Image" id="apidoc.element.mammoth.documents.Image">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>Image
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Image(options) {
+    return {
+        type: types.image,
+        read: options.readImage,
+        altText: options.altText,
+        contentType: options.contentType
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        read: docxFile.read.bind(docxFile, path)
+    };
+}
+
+function readImage(imageFile, altText) {
+    var contentType = contentTypes.findContentType(imageFile.path);
+
+    var image = documents.<span class="apidocCodeKeywordSpan">Image</span>({
+        readImage: imageFile.read,
+        altText: altText,
+        contentType: contentType
+    });
+    var warnings = supportedImageTypes[contentType] ?
+        [] : warning(&#x22;Image of type &#x22; + contentType + &#x22; is unlikely to display in web browsers&#x22;);
+    return elementResultWithMessages(image, warnings);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.Note" id="apidoc.element.mammoth.documents.Note">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>Note
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Note(options) {
+    return {
+        type: types.note,
+        noteType: options.noteType,
+        noteId: options.noteId,
+        body: options.body
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return type !== &#x22;continuationSeparator&#x22; &#x26;&#x26; type !== &#x22;separator&#x22;;
+    }
+
+    function readFootnoteElement(footnoteElement) {
+        var id = footnoteElement.attributes[&#x22;w:id&#x22;];
+        return bodyReader.readXmlElements(footnoteElement.children)
+            .map(function(body) {
+                return documents.<span class="apidocCodeKeywordSpan">Note</span>({noteType: noteType, noteId: id, body: body});
+            });
+    }
+
+    return readNotesXml;
+}
+
+},{&#x22;../documents&#x22;:4,&#x22;../results&#x22;:24}],11:[function(require,module,exports){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.NoteReference" id="apidoc.element.mammoth.documents.NoteReference">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>NoteReference
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NoteReference(options) {
+    return {
+        type: types.noteReference,
+        noteType: options.noteType,
+        noteId: options.noteId
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    currentInstrText.push(element.text());
+    return emptyResult();
+}
+
+function noteReferenceReader(noteType) {
+    return function(element) {
+        var noteId = element.attributes[&#x22;w:id&#x22;];
+        return elementResult(new documents.<span class="apidocCodeKeywordSpan">NoteReference</span>({
+            noteType: noteType,
+            noteId: noteId
+        }));
+    };
+}
+
+function readCommentReference(element) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.Notes" id="apidoc.element.mammoth.documents.Notes">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>Notes
+        <span class="apidocSignatureSpan">(notes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Notes(notes) {
+    this._notes = _.indexBy(notes, function(note) {
+        return noteKey(note.noteType, note.noteId);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            }
+        })
+    };
+}).also(function(result) {
+    return {
+        notes: result.footnotes.flatMap(function(footnotes) {
+            return result.endnotes.map(function(endnotes) {
+                return new documents.<span class="apidocCodeKeywordSpan">Notes</span>(footnotes.concat(endnotes));
+            });
+        })
+    };
+}).then(function(result) {
+    return readXmlFileWithBody(&#x22;document&#x22;, result, function(bodyReader, xml) {
+        if (xml) {
+            return result.notes.flatMap(function(notes) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.Paragraph" id="apidoc.element.mammoth.documents.Paragraph">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>Paragraph
+        <span class="apidocSignatureSpan">(children, properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Paragraph(children, properties) {
+    properties = properties || {};
+    return {
+        type: types.paragraph,
+        children: children,
+        styleId: properties.styleId || null,
+        styleName: properties.styleName || null,
+        numbering: properties.numbering || null,
+        alignment: properties.alignment || null
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+var xmlElementReaders = {
+    &#x22;w:p&#x22;: function(element) {
+        return readXmlElements(element.children)
+            .map(function(children) {
+                var properties = _.find(children, isParagraphProperties);
+                return new documents.<span class="apidocCodeKeywordSpan">Paragraph</span>(
+                    children.filter(negate(isParagraphProperties)),
+                    properties
+                );
+            })
+            .insertExtra();
+    },
+    &#x22;w:pPr&#x22;: function(element) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.Run" id="apidoc.element.mammoth.documents.Run">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>Run
+        <span class="apidocSignatureSpan">(children, properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Run(children, properties) {
+    properties = properties || {};
+    return {
+        type: types.run,
+        children: children,
+        styleId: properties.styleId || null,
+        styleName: properties.styleName || null,
+        isBold: properties.isBold,
+        isUnderline: properties.isUnderline,
+        isItalic: properties.isItalic,
+        isStrikethrough: properties.isStrikethrough,
+        verticalAlignment: properties.verticalAlignment || verticalAlignment.baseline,
+        font: properties.font || null
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            children = children.filter(negate(isRunProperties));
+
+            var hyperlinkHref = currentHyperlinkHref();
+            if (hyperlinkHref !== null) {
+                children = [new documents.Hyperlink(children, {href: hyperlinkHref})];
+            }
+
+            return new documents.<span class="apidocCodeKeywordSpan">Run</span>(children, properties);
+        });
+},
+&#x22;w:rPr&#x22;: readRunProperties,
+&#x22;w:fldChar&#x22;: readFldChar,
+&#x22;w:instrText&#x22;: readInstrText,
+&#x22;w:t&#x22;: function(element) {
+    return elementResult(new documents.Text(element.text()));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.Tab" id="apidoc.element.mammoth.documents.Tab">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>Tab
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Tab() {
+    return {
+        type: types.tab
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+&#x22;w:rPr&#x22;: readRunProperties,
+&#x22;w:fldChar&#x22;: readFldChar,
+&#x22;w:instrText&#x22;: readInstrText,
+&#x22;w:t&#x22;: function(element) {
+    return elementResult(new documents.Text(element.text()));
+},
+&#x22;w:tab&#x22;: function(element) {
+    return elementResult(new documents.<span class="apidocCodeKeywordSpan">Tab</span>());
+},
+&#x22;w:hyperlink&#x22;: function(element) {
+    var relationshipId = element.attributes[&#x22;r:id&#x22;];
+    var anchor = element.attributes[&#x22;w:anchor&#x22;];
+    return readXmlElements(element.children).map(function(children) {
+        if (relationshipId) {
+            var href = relationships[relationshipId].target;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.Table" id="apidoc.element.mammoth.documents.Table">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>Table
+        <span class="apidocSignatureSpan">(children)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Table(children) {
+    return {
+        type: types.table,
+        children: children
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.TableCell" id="apidoc.element.mammoth.documents.TableCell">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>TableCell
+        <span class="apidocSignatureSpan">(children, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function TableCell(children, options) {
+    options = options || {};
+    return {
+        type: types.tableCell,
+        children: children,
+        colSpan: options.colSpan == null ? 1 : options.colSpan,
+        rowSpan: options.rowSpan == null ? 1 : options.rowSpan
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+function readTableCell(element) {
+    return readXmlElements(element.children).map(function(children) {
+        var properties = element.firstOrEmpty(&#x22;w:tcPr&#x22;);
+
+        var gridSpan = properties.firstOrEmpty(&#x22;w:gridSpan&#x22;).attributes[&#x22;w:val&#x22;];
+        var colSpan = gridSpan ? parseInt(gridSpan, 10) : 1;
+
+        var cell = documents.<span class="apidocCodeKeywordSpan">TableCell</span>(children, {colSpan: colSpan});
+        cell._vMerge = readVMerge(properties);
+        return cell;
+    });
+}
+
+function readVMerge(properties) {
+    var element = properties.first(&#x22;w:vMerge&#x22;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.TableRow" id="apidoc.element.mammoth.documents.TableRow">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>TableRow
+        <span class="apidocSignatureSpan">(children)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function TableRow(children) {
+    return {
+        type: types.tableRow,
+        children: children
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.Text" id="apidoc.element.mammoth.documents.Text">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>Text
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Text(value) {
+    return {
+        type: types.text,
+        value: value
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            return new documents.Run(children, properties);
+        });
+},
+&#x22;w:rPr&#x22;: readRunProperties,
+&#x22;w:fldChar&#x22;: readFldChar,
+&#x22;w:instrText&#x22;: readInstrText,
+&#x22;w:t&#x22;: function(element) {
+    return elementResult(new documents.<span class="apidocCodeKeywordSpan">Text</span>(element.text()));
+},
+&#x22;w:tab&#x22;: function(element) {
+    return elementResult(new documents.Tab());
+},
+&#x22;w:hyperlink&#x22;: function(element) {
+    var relationshipId = element.attributes[&#x22;r:id&#x22;];
+    var anchor = element.attributes[&#x22;w:anchor&#x22;];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.comment" id="apidoc.element.mammoth.documents.comment">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>comment
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function comment(options) {
+    return {
+        type: types.comment,
+        commentId: options.commentId,
+        body: options.body,
+        authorName: options.authorName,
+        authorInitials: options.authorInitials
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    function readOptionalAttribute(name) {
+        return (element.attributes[name] || &#x22;&#x22;).trim() || null;
+    }
+
+    return bodyReader.readXmlElements(element.children)
+        .map(function(body) {
+            return documents.<span class="apidocCodeKeywordSpan">comment</span>({
+                commentId: id,
+                body: body,
+                authorName: readOptionalAttribute(&#x22;w:author&#x22;),
+                authorInitials: readOptionalAttribute(&#x22;w:initials&#x22;)
+            });
+        });
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.commentReference" id="apidoc.element.mammoth.documents.commentReference">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>commentReference
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function commentReference(options) {
+    return {
+        type: types.commentReference,
+        commentId: options.commentId
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            noteType: noteType,
+            noteId: noteId
+        }));
+    };
+}
+
+function readCommentReference(element) {
+    return elementResult(documents.<span class="apidocCodeKeywordSpan">commentReference</span>({
+        commentId: element.attributes[&#x22;w:id&#x22;]
+    }));
+}
+
+function readChildElements(element) {
+    return readXmlElements(element.children);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.document" id="apidoc.element.mammoth.documents.document">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>document
+        <span class="apidocSignatureSpan">(children, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Document(children, options) {
+    options = options || {};
+    return {
+        type: types.document,
+        children: children,
+        notes: options.notes || new Notes({}),
+        comments: options.comments || []
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    };
+
+    XMLDocType.prototype.up = function() {
+      return this.root();
+    };
+
+    XMLDocType.prototype.doc = function() {
+      return this.<span class="apidocCodeKeywordSpan">document</span>();
+    };
+
+    return XMLDocType;
+
+  })();
+
+}).call(this);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.noteReference" id="apidoc.element.mammoth.documents.noteReference">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>noteReference
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NoteReference(options) {
+    return {
+        type: types.noteReference,
+        noteType: options.noteType,
+        noteId: options.noteId
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.paragraph" id="apidoc.element.mammoth.documents.paragraph">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>paragraph
+        <span class="apidocSignatureSpan">(children, properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Paragraph(children, properties) {
+    properties = properties || {};
+    return {
+        type: types.paragraph,
+        children: children,
+        styleId: properties.styleId || null,
+        styleName: properties.styleName || null,
+        numbering: properties.numbering || null,
+        alignment: properties.alignment || null
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return {...element, styleId: &#x22;Heading2&#x22;};
+    } else {
+        return element;
+    }
+}
+
+var options = {
+    transformDocument: mammoth.transforms.<span class="apidocCodeKeywordSpan">paragraph</span>(transformParagraph)
+};
+```
+
+Or if you want paragraphs that have been explicitly set to use monospace fonts to represent code:
+
+```javascript
+function transformParagraph(paragraph) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.run" id="apidoc.element.mammoth.documents.run">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>run
+        <span class="apidocSignatureSpan">(children, properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Run(children, properties) {
+    properties = properties || {};
+    return {
+        type: types.run,
+        children: children,
+        styleId: properties.styleId || null,
+        styleName: properties.styleName || null,
+        isBold: properties.isBold,
+        isUnderline: properties.isUnderline,
+        isItalic: properties.isItalic,
+        isStrikethrough: properties.isStrikethrough,
+        verticalAlignment: properties.verticalAlignment || verticalAlignment.baseline,
+        font: properties.font || null
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### `mammoth.transforms.paragraph(transformParagraph)`
+
+Returns a function that can be used as the `transformDocument` option.
+This will apply the function `transformParagraph` to each paragraph element.
+`transformParagraph` should return the new paragraph.
+
+#### `mammoth.transforms.<span class="apidocCodeKeywordSpan">run</span>(transformRun)`
+
+Returns a function that can be used as the `transformDocument` option.
+This will apply the function `transformRun` to each run element.
+`transformRun` should return the new run.
+
+#### `mammoth.transforms.getDescendants(element)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.documents.tab" id="apidoc.element.mammoth.documents.tab">
+        function <span class="apidocSignatureSpan">mammoth.documents.</span>tab
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Tab() {
+    return {
+        type: types.tab
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.embedStyleMap" id="apidoc.module.mammoth.embedStyleMap">module mammoth.embedStyleMap</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.embedStyleMap.embedStyleMap" id="apidoc.element.mammoth.embedStyleMap.embedStyleMap">
+        function <span class="apidocSignatureSpan">mammoth.</span>embedStyleMap
+        <span class="apidocSignatureSpan">(input, styleMap)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function embedStyleMap(input, styleMap) {
+    return unzip.openZip(input)
+        .tap(function(docxFile) {
+            return docxStyleMap.writeStyleMap(docxFile, styleMap);
+        })
+        .then(function(docxFile) {
+            return {
+                toBuffer: docxFile.toBuffer
+            };
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Returns a promise containing a result.
+  This result has the following properties:
+
+  * `value`: the raw text
+
+  * `messages`: any messages, such as errors and warnings
+
+#### `mammoth.<span class="apidocCodeKeywordSpan">embedStyleMap</span>(input, styleMap)`
+
+Given an existing docx file,
+`embedStyleMap` will generate a new docx file with the passed style map embedded.
+When the new docx file is read by Mammoth,
+it will use the embedded style map.
+
+* `input`: an object describing the source document.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.extractRawText" id="apidoc.module.mammoth.extractRawText">module mammoth.extractRawText</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.extractRawText.extractRawText" id="apidoc.element.mammoth.extractRawText.extractRawText">
+        function <span class="apidocSignatureSpan">mammoth.</span>extractRawText
+        <span class="apidocSignatureSpan">(input)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extractRawText(input) {
+    return unzip.openZip(input)
+        .then(docxReader.read)
+        .then(function(documentResult) {
+            return documentResult.map(convertElementToRawText);
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Note that `mammoth.convertToHtml` returns a [promise](http://promises-aplus.github.io/promises-spec/).
+
+You can also extract the raw text of the document by using `mammoth.extractRawText`.
+This will ignore all formatting in the document.
+Each paragraph is followed by two newlines.
+
+```javascript
+mammoth.<span class="apidocCodeKeywordSpan">extractRawText</span>({path: &#x22;path/to/document.docx&#x22;})
+    .then(function(result){
+        var text = result.value; // The raw text
+        var messages = result.messages;
+    })
+    .done();
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.images" id="apidoc.module.mammoth.images">module mammoth.images</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.images.imgElement" id="apidoc.element.mammoth.images.imgElement">
+        function <span class="apidocSignatureSpan">mammoth.images.</span>imgElement
+        <span class="apidocSignatureSpan">(func)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">imgElement = function (func) {
+    return function(element, messages) {
+        return promises.when(func(element)).then(function(result) {
+            var attributes = _.clone(result);
+            if (element.altText) {
+                attributes.alt = element.altText;
+            }
+            return [Html.freshElement(&#x22;img&#x22;, attributes)];
+        });
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+By default, images are converted to `&#x3c;img&#x3e;` elements with the source included inline in the `src` attribute.
+This behaviour can be changed by setting the `convertImage` option to an [image converter](#image-converters) .
+
+For instance, the following would replicate the default behaviour:
+
+```javascript
+var options = {
+    convertImage: mammoth.images.<span class="apidocCodeKeywordSpan">imgElement</span>(function(image) {
+        return image.read(&#x22;base64&#x22;).then(function(imageBuffer) {
+            return {
+                src: &#x22;data:&#x22; + image.contentType + &#x22;;base64,&#x22; + imageBuffer
+            };
+        });
+    })
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.images.inline" id="apidoc.element.mammoth.images.inline">
+        function <span class="apidocSignatureSpan">mammoth.images.</span>inline
+        <span class="apidocSignatureSpan">(func)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inline = function (func) {
+    return function(element, messages) {
+        return promises.when(func(element)).then(function(result) {
+            var attributes = _.clone(result);
+            if (element.altText) {
+                attributes.alt = element.altText;
+            }
+            return [Html.freshElement(&#x22;img&#x22;, attributes)];
+        });
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.images.imgElement" id="apidoc.module.mammoth.images.imgElement">module mammoth.images.imgElement</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.images.imgElement.imgElement" id="apidoc.element.mammoth.images.imgElement.imgElement">
+        function <span class="apidocSignatureSpan">mammoth.images.</span>imgElement
+        <span class="apidocSignatureSpan">(func)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">imgElement = function (func) {
+    return function(element, messages) {
+        return promises.when(func(element)).then(function(result) {
+            var attributes = _.clone(result);
+            if (element.altText) {
+                attributes.alt = element.altText;
+            }
+            return [Html.freshElement(&#x22;img&#x22;, attributes)];
+        });
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+By default, images are converted to `&#x3c;img&#x3e;` elements with the source included inline in the `src` attribute.
+This behaviour can be changed by setting the `convertImage` option to an [image converter](#image-converters) .
+
+For instance, the following would replicate the default behaviour:
+
+```javascript
+var options = {
+    convertImage: mammoth.images.<span class="apidocCodeKeywordSpan">imgElement</span>(function(image) {
+        return image.read(&#x22;base64&#x22;).then(function(imageBuffer) {
+            return {
+                src: &#x22;data:&#x22; + image.contentType + &#x22;;base64,&#x22; + imageBuffer
+            };
+        });
+    })
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.main" id="apidoc.module.mammoth.main">module mammoth.main</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.main.main" id="apidoc.element.mammoth.main.main">
+        function <span class="apidocSignatureSpan">mammoth.</span>main
+        <span class="apidocSignatureSpan">(argv)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function main(argv) {
+    var docxPath = argv[&#x22;docx-path&#x22;];
+    var outputPath = argv[&#x22;output-path&#x22;];
+    var outputDir = argv.output_dir;
+    var outputFormat = argv.output_format;
+    var styleMapPath = argv.style_map;
+
+    readStyleMap(styleMapPath).then(function(styleMap) {
+        var options = {
+            styleMap: styleMap,
+            outputFormat: outputFormat
+        };
+
+        if (outputDir) {
+            var basename = path.basename(docxPath, &#x22;.docx&#x22;);
+            outputPath = path.join(outputDir, basename + &#x22;.html&#x22;);
+            var imageIndex = 0;
+            options.convertImage = images.imgElement(function(element) {
+                imageIndex++;
+                var extension = element.contentType.split(&#x22;/&#x22;)[1];
+                var filename = imageIndex + &#x22;.&#x22; + extension;
+
+                return element.read().then(function(imageBuffer) {
+                    var imagePath = path.join(outputDir, filename);
+                    return promises.nfcall(fs.writeFile, imagePath, imageBuffer);
+                }).then(function() {
+                    return {src: filename};
+                });
+            });
+        }
+
+        return mammoth.convert({path: docxPath}, options)
+            .then(function(result) {
+                result.messages.forEach(function(message) {
+                    process.stderr.write(message.message);
+                    process.stderr.write(&#x22;\n&#x22;);
+                });
+
+                var outputStream = outputPath ? fs.createWriteStream(outputPath) : process.stdout;
+
+                outputStream.write(result.value);
+            });
+    }).done();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.mammoth_browser" id="apidoc.module.mammoth.mammoth_browser">module mammoth.mammoth_browser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.mammoth_browser.convert" id="apidoc.element.mammoth.mammoth_browser.convert">
+        function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>convert
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function convert(input, options) {
+    options = readOptions(options);
+
+    return unzip.openZip(input)
+        .tap(function(docxFile) {
+            return docxStyleMap.readStyleMap(docxFile).then(function(styleMap) {
+                options.embeddedStyleMap = styleMap;
+            });
+        })
+        .then(function(docxFile) {
+            return docxReader.read(docxFile, input)
+                .then(function(documentResult) {
+                    return documentResult.map(options.transformDocument);
+                })
+                .then(function(documentResult) {
+                    return convertDocumentToHtml(documentResult, options);
+                });
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            return promises.nfcall(fs.writeFile, imagePath, imageBuffer);
+        }).then(function() {
+            return {src: filename};
+        });
+    });
+}
+
+return mammoth.<span class="apidocCodeKeywordSpan">convert</span>({path: docxPath}, options)
+    .then(function(result) {
+        result.messages.forEach(function(message) {
+            process.stderr.write(message.message);
+            process.stderr.write(&#x22;\n&#x22;);
+        });
+
+        var outputStream = outputPath ? fs.createWriteStream(outputPath) : process.stdout;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.mammoth_browser.convertToHtml" id="apidoc.element.mammoth.mammoth_browser.convertToHtml">
+        function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>convertToHtml
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function convertToHtml(input, options) {
+    return convert(input, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### Basic conversion
+
+To convert an existing .docx file to HTML, use `mammoth.convertToHtml`:
+
+```javascript
+var mammoth = require(&#x22;mammoth&#x22;);
+
+mammoth.<span class="apidocCodeKeywordSpan">convertToHtml</span>({path: &#x22;path/to/document.docx&#x22;})
+    .then(function(result){
+        var html = result.value; // The generated HTML
+        var messages = result.messages; // Any messages, such as warnings during conversion
+    })
+    .done();
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.mammoth_browser.convertToMarkdown" id="apidoc.element.mammoth.mammoth_browser.convertToMarkdown">
+        function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>convertToMarkdown
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function convertToMarkdown(input, options) {
+    var markdownOptions = Object.create(options || {});
+    markdownOptions.outputFormat = &#x22;markdown&#x22;;
+    return convert(input, markdownOptions);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Returns a promise containing a result.
+  This result has the following properties:
+
+  * `value`: the generated HTML
+
+  * `messages`: any messages, such as errors and warnings, generated during the conversion
+
+#### `mammoth.<span class="apidocCodeKeywordSpan">convertToMarkdown</span>(input, options)`
+
+Converts the source document to Markdown.
+This behaves the same as `convertToHtml`,
+except that the `value` property of the result contains Markdown rather than HTML.
+
+#### `mammoth.extractRawText(input)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.mammoth_browser.embedStyleMap" id="apidoc.element.mammoth.mammoth_browser.embedStyleMap">
+        function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>embedStyleMap
+        <span class="apidocSignatureSpan">(input, styleMap)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function embedStyleMap(input, styleMap) {
+    return unzip.openZip(input)
+        .tap(function(docxFile) {
+            return docxStyleMap.writeStyleMap(docxFile, styleMap);
+        })
+        .then(function(docxFile) {
+            return {
+                toBuffer: docxFile.toBuffer
+            };
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Returns a promise containing a result.
+  This result has the following properties:
+
+  * `value`: the raw text
+
+  * `messages`: any messages, such as errors and warnings
+
+#### `mammoth.<span class="apidocCodeKeywordSpan">embedStyleMap</span>(input, styleMap)`
+
+Given an existing docx file,
+`embedStyleMap` will generate a new docx file with the passed style map embedded.
+When the new docx file is read by Mammoth,
+it will use the embedded style map.
+
+* `input`: an object describing the source document.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.mammoth_browser.extractRawText" id="apidoc.element.mammoth.mammoth_browser.extractRawText">
+        function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>extractRawText
+        <span class="apidocSignatureSpan">(input)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extractRawText(input) {
+    return unzip.openZip(input)
+        .then(docxReader.read)
+        .then(function(documentResult) {
+            return documentResult.map(convertElementToRawText);
+        });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Note that `mammoth.convertToHtml` returns a [promise](http://promises-aplus.github.io/promises-spec/).
+
+You can also extract the raw text of the document by using `mammoth.extractRawText`.
+This will ignore all formatting in the document.
+Each paragraph is followed by two newlines.
+
+```javascript
+mammoth.<span class="apidocCodeKeywordSpan">extractRawText</span>({path: &#x22;path/to/document.docx&#x22;})
+    .then(function(result){
+        var text = result.value; // The raw text
+        var messages = result.messages;
+    })
+    .done();
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.mammoth_browser.readEmbeddedStyleMap" id="apidoc.element.mammoth.mammoth_browser.readEmbeddedStyleMap">
+        function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>readEmbeddedStyleMap
+        <span class="apidocSignatureSpan">(input)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readEmbeddedStyleMap(input) {
+    return unzip.openZip(input)
+        .then(docxStyleMap.readStyleMap);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.mammoth_browser.styleMapping" id="apidoc.element.mammoth.mammoth_browser.styleMapping">
+        function <span class="apidocSignatureSpan">mammoth.mammoth_browser.</span>styleMapping
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">styleMapping = function () {
+    throw new Error(&#x27;Use a raw string instead of mammoth.styleMapping e.g. &#x22;p[style-name=\&#x27;Title\&#x27;] =&#x3e; h1&#x22; instead of mammoth.styleMapping
+(&#x22;p[style-name=\&#x27;Title\&#x27;] =&#x3e; h1&#x22;)&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+* Set the `styleId` property instead of the `styleName` property
+
+* Set the `styleName` property to the name of the style, rather than the ID
+
+### 0.2.0
+
+The function `mammoth.style()` was renamed to `mammoth.<span class="apidocCodeKeywordSpan">styleMapping</span>()`.
+
+## Acknowledgements
+
+Thanks to the following people for their contributions to Mammoth:
+
+* [Craig Leinoff](https://github.com/Offlein):
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.options_reader" id="apidoc.module.mammoth.options_reader">module mammoth.options_reader</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.options_reader.readOptions" id="apidoc.element.mammoth.options_reader.readOptions">
+        function <span class="apidocSignatureSpan">mammoth.options_reader.</span>readOptions
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readOptions(options) {
+    options = options || {};
+    return _.extend({}, standardOptions, options, {
+        customStyleMap: readStyleMap(options.styleMap),
+        readStyleMap: function() {
+            var styleMap = this.customStyleMap;
+            if (this.includeEmbeddedStyleMap) {
+                styleMap = styleMap.concat(readStyleMap(this.embeddedStyleMap));
+            }
+            if (this.includeDefaultStyleMap) {
+                styleMap = styleMap.concat(defaultStyleMap);
+            }
+            return styleMap;
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.promises" id="apidoc.module.mammoth.promises">module mammoth.promises</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.promises.all" id="apidoc.element.mammoth.promises.all">
+        function <span class="apidocSignatureSpan">mammoth.promises.</span>all
+        <span class="apidocSignatureSpan">(promises)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">all = function (promises) {
+    return new PromiseArray(promises).promise();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+promise._setIsFinal();
+};
+
+Promise.prototype.spread = function (fn) {
+if (typeof fn !== &#x22;function&#x22;) {
+    return apiRejection(&#x22;expecting a function but got &#x22; + util.classString(fn));
+}
+return this.<span class="apidocCodeKeywordSpan">all</span>()._then(fn, undefined, undefined, APPLY, undefined);
+};
+
+Promise.prototype.toJSON = function () {
+var ret = {
+    isFulfilled: false,
+    isRejected: false,
+    fulfillmentValue: undefined,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.promises.attempt" id="apidoc.element.mammoth.promises.attempt">
+        function <span class="apidocSignatureSpan">mammoth.promises.</span>attempt
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">attempt = function (fn) {
+    if (typeof fn !== &#x22;function&#x22;) {
+        return apiRejection(&#x22;expecting a function but got &#x22; + util.classString(fn));
+    }
+    var ret = new Promise(INTERNAL);
+    ret._captureStackTrace();
+    ret._pushContext();
+    var value;
+    if (arguments.length &#x3e; 1) {
+        debug.deprecated(&#x22;calling Promise.try with more than 1 argument&#x22;);
+        var arg = arguments[1];
+        var ctx = arguments[2];
+        value = util.isArray(arg) ? tryCatch(fn).apply(ctx, arg)
+                                  : tryCatch(fn).call(ctx, arg);
+    } else {
+        value = tryCatch(fn)();
+    }
+    var promiseCreated = ret._popContext();
+    debug.checkForgottenReturns(
+        value, promiseCreated, &#x22;Promise.try&#x22;, ret);
+    ret._resolveFromSyncValue(value);
+    return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            src: &#x22;data:&#x22; + element.contentType + &#x22;;base64,&#x22; + imageBuffer
+        };
+    });
+});
+
+function recoveringConvertImage(convertImage) {
+    return function(image, messages) {
+        return promises.<span class="apidocCodeKeywordSpan">attempt</span>(function() {
+            return convertImage(image, messages);
+        }).caught(function(error) {
+            messages.push(results.error(error));
+            return [];
+        });
+    };
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.promises.defer" id="apidoc.element.mammoth.promises.defer">
+        function <span class="apidocSignatureSpan">mammoth.promises.</span>defer
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function defer() {
+    var resolve;
+    var reject;
+    var promise = new bluebird.Promise(function(resolveArg, rejectArg) {
+        resolve = resolveArg;
+        reject = rejectArg;
+    });
+
+    return {
+        resolve: resolve,
+        reject: reject,
+        promise: promise
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var finished = false;
+var parser = sax.parser(true, {xmlns: true, position: false});
+
+var rootElement = {children: []};
+var currentElement = rootElement;
+var stack = [];
+
+var deferred = promises.<span class="apidocCodeKeywordSpan">defer</span>();
+
+parser.onopentag = function(node) {
+    var attributes = mapObject(node.attributes, function(attribute) {
+        return attribute.value;
+    }, mapName);
+
+    var element = new Element(mapName(node), attributes);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.promises.mapSeries" id="apidoc.element.mammoth.promises.mapSeries">
+        function <span class="apidocSignatureSpan">mammoth.promises.</span>mapSeries
+        <span class="apidocSignatureSpan">(promises, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PromiseMapSeries(promises, fn) {
+    return PromiseReduce(promises, fn, INTERNAL, INTERNAL);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var deferredNodes = [];
+walkHtml(html, function(node) {
+    if (node.type === &#x22;deferred&#x22;) {
+        deferredNodes.push(node);
+    }
+});
+var deferredValues = {};
+return promises.<span class="apidocCodeKeywordSpan">mapSeries</span>(deferredNodes, function(deferred) {
+    return deferred.value().then(function(value) {
+        deferredValues[deferred.id] = value;
+    });
+}).then(function() {
+    function replaceDeferred(nodes) {
+        return flatMap(nodes, function(node) {
+            if (node.type === &#x22;deferred&#x22;) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.promises.nfcall" id="apidoc.element.mammoth.promises.nfcall">
+        function <span class="apidocSignatureSpan">mammoth.promises.</span>nfcall
+        <span class="apidocSignatureSpan">(func)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nfcall = function (func) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    var promisedFunc = bluebird.promisify(func);
+    return promisedFunc.apply(null, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    options.convertImage = images.imgElement(function(element) {
+        imageIndex++;
+        var extension = element.contentType.split(&#x22;/&#x22;)[1];
+        var filename = imageIndex + &#x22;.&#x22; + extension;
+
+        return element.read().then(function(imageBuffer) {
+            var imagePath = path.join(outputDir, filename);
+            return promises.<span class="apidocCodeKeywordSpan">nfcall</span>(fs.writeFile, imagePath, imageBuffer);
+        }).then(function() {
+            return {src: filename};
+        });
+    });
+}
+
+return mammoth.convert({path: docxPath}, options)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.promises.promisify" id="apidoc.element.mammoth.promises.promisify">
+        function <span class="apidocSignatureSpan">mammoth.promises.</span>promisify
+        <span class="apidocSignatureSpan">(fn, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">promisify = function (fn, options) {
+    if (typeof fn !== &#x22;function&#x22;) {
+        throw new TypeError(&#x22;expecting a function but got &#x22; + util.classString(fn));
+    }
+    if (isPromisified(fn)) {
+        return fn;
+    }
+    options = Object(options);
+    var receiver = options.context === undefined ? THIS : options.context;
+    var multiArgs = !!options.multiArgs;
+    var ret = promisify(fn, receiver, multiArgs);
+    util.copyDescriptors(fn, ret, propsFilter);
+    return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+exports.reject = bluebird.reject;
+exports.promisify = bluebird.promisify;
+exports.mapSeries = bluebird.mapSeries;
+exports.attempt = bluebird.attempt;
+
+exports.nfcall = function(func) {
+var args = Array.prototype.slice.call(arguments, 1);
+var promisedFunc = bluebird.<span class="apidocCodeKeywordSpan">promisify</span>(func);
+return promisedFunc.apply(null, args);
+};
+
+bluebird.prototype.fail = bluebird.prototype.caught;
+
+bluebird.prototype.also = function(func) {
+return this.then(function(value) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.promises.props" id="apidoc.element.mammoth.promises.props">
+        function <span class="apidocSignatureSpan">mammoth.promises.</span>props
+        <span class="apidocSignatureSpan">(promises)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">props = function (promises) {
+    return props(promises);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+bluebird.prototype.fail = bluebird.prototype.caught;
+
+bluebird.prototype.also = function(func) {
+return this.then(function(value) {
+    var returnValue = _.extend({}, value, func(value));
+    return bluebird.<span class="apidocCodeKeywordSpan">props</span>(returnValue);
+});
+};
+
+function defer() {
+var resolve;
+var reject;
+var promise = new bluebird.Promise(function(resolveArg, rejectArg) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.promises.reject" id="apidoc.element.mammoth.promises.reject">
+        function <span class="apidocSignatureSpan">mammoth.promises.</span>reject
+        <span class="apidocSignatureSpan">(reason)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reject = function (reason) {
+    var ret = new Promise(INTERNAL);
+    ret._captureStackTrace();
+    ret._rejectCallback(reason, true);
+    return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+exports.openZip = openZip;
+
+function openZip(options) {
+    if (options.arrayBuffer) {
+        return promises.resolve(zipfile.openArrayBuffer(options.arrayBuffer));
+    } else {
+        return promises.<span class="apidocCodeKeywordSpan">reject</span>(new Error(&#x22;Could not find file in options&#x22;));
+    }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.promises.resolve" id="apidoc.element.mammoth.promises.resolve">
+        function <span class="apidocSignatureSpan">mammoth.promises.</span>resolve
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resolve = function (obj) {
+    var ret = tryConvertToPromise(obj);
+    if (!(ret instanceof Promise)) {
+        ret = new Promise(INTERNAL);
+        ret._captureStackTrace();
+        ret._setFulfilled();
+        ret._rejectionHandler0 = obj;
+    }
+    return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var promises = require(&#x22;../lib/promises&#x22;);
+var zipfile = require(&#x22;../lib/zipfile&#x22;);
+
+exports.openZip = openZip;
+
+function openZip(options) {
+    if (options.arrayBuffer) {
+        return promises.<span class="apidocCodeKeywordSpan">resolve</span>(zipfile.openArrayBuffer(options.arrayBuffer));
+    } else {
+        return promises.reject(new Error(&#x22;Could not find file in options&#x22;));
+    }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.promises.when" id="apidoc.element.mammoth.promises.when">
+        function <span class="apidocSignatureSpan">mammoth.promises.</span>when
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">when = function (obj) {
+    var ret = tryConvertToPromise(obj);
+    if (!(ret instanceof Promise)) {
+        ret = new Promise(INTERNAL);
+        ret._captureStackTrace();
+        ret._setFulfilled();
+        ret._rejectionHandler0 = obj;
+    }
+    return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return zipFile.file(name) !== null;
+}
+
+function read(name, encoding) {
+    var array = zipFile.file(name).asUint8Array();
+    var buffer = new Buffer(array);
+    if (encoding) {
+        return promises.<span class="apidocCodeKeywordSpan">when</span>(buffer.toString(encoding));
+    } else {
+        return promises.when(buffer);
+    }
+}
+
+function write(name, contents) {
+    zipFile.file(name, contents);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.readEmbeddedStyleMap" id="apidoc.module.mammoth.readEmbeddedStyleMap">module mammoth.readEmbeddedStyleMap</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.readEmbeddedStyleMap.readEmbeddedStyleMap" id="apidoc.element.mammoth.readEmbeddedStyleMap.readEmbeddedStyleMap">
+        function <span class="apidocSignatureSpan">mammoth.</span>readEmbeddedStyleMap
+        <span class="apidocSignatureSpan">(input)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readEmbeddedStyleMap(input) {
+    return unzip.openZip(input)
+        .then(docxStyleMap.readStyleMap);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.results" id="apidoc.module.mammoth.results">module mammoth.results</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.results.Result" id="apidoc.element.mammoth.results.Result">
+        function <span class="apidocSignatureSpan">mammoth.results.</span>Result
+        <span class="apidocSignatureSpan">(value, messages)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Result(value, messages) {
+    this.value = value;
+    this.messages = messages || [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            });
+        }
+        var writer = writers.writer({
+            prettyPrint: options.prettyPrint,
+            outputFormat: options.outputFormat
+        });
+        Html.write(writer, Html.simplify(replaceDeferred(html)));
+        return new results.<span class="apidocCodeKeywordSpan">Result</span>(writer.asString(), messages);
+    });
+}
+
+function convertElements(elements, messages) {
+    return flatMap(elements, function(element) {
+        return elementToHtml(element, messages);
+    });
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.results.error" id="apidoc.element.mammoth.results.error">
+        function <span class="apidocSignatureSpan">mammoth.results.</span>error
+        <span class="apidocSignatureSpan">(exception)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function error(exception) {
+    return {
+        type: &#x22;error&#x22;,
+        message: exception.message,
+        error: exception
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+
+function recoveringConvertImage(convertImage) {
+    return function(image, messages) {
+        return promises.attempt(function() {
+            return convertImage(image, messages);
+        }).caught(function(error) {
+            messages.push(results.<span class="apidocCodeKeywordSpan">error</span>(error));
+            return [];
+        });
+    };
+}
+
+function noteHtmlId(note) {
+    return referentHtmlId(note.noteType, note.noteId);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.results.success" id="apidoc.element.mammoth.results.success">
+        function <span class="apidocSignatureSpan">mammoth.results.</span>success
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function success(value) {
+    return new Result(value, []);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+).head();
+
+function parseString(rule, string) {
+var tokens = tokenise(string);
+var parser = lop.Parser();
+var parseResult = parser.parseTokens(rule, tokens);
+if (parseResult.isSuccess()) {
+    return results.<span class="apidocCodeKeywordSpan">success</span>(parseResult.value());
+} else {
+    return new results.Result(null, [results.warning(describeFailure(string, parseResult))]);
+}
+}
+
+function describeFailure(input, parseResult) {
+return &#x22;Did not understand this style mapping, so ignored it: &#x22; + input + &#x22;\n&#x22; +
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.results.warning" id="apidoc.element.mammoth.results.warning">
+        function <span class="apidocSignatureSpan">mammoth.results.</span>warning
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function warning(message) {
+    return {
+        type: &#x22;warning&#x22;,
+        message: message
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            }
+        }
+    ];
+};
+}
+
+function unrecognisedStyleWarning(type, element) {
+return results.<span class="apidocCodeKeywordSpan">warning</span>(
+    &#x22;Unrecognised &#x22; + type + &#x22; style: &#x27;&#x22; + element.styleName + &#x22;&#x27;&#x22; +
+    &#x22; (Style ID: &#x22; + element.styleId + &#x22;)&#x22;
+);
+}
+
+function flatMap(values, func) {
+return _.flatten(values.map(func), true);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.styleMapping" id="apidoc.module.mammoth.styleMapping">module mammoth.styleMapping</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.styleMapping.styleMapping" id="apidoc.element.mammoth.styleMapping.styleMapping">
+        function <span class="apidocSignatureSpan">mammoth.</span>styleMapping
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">styleMapping = function () {
+    throw new Error(&#x27;Use a raw string instead of mammoth.styleMapping e.g. &#x22;p[style-name=\&#x27;Title\&#x27;] =&#x3e; h1&#x22; instead of mammoth.styleMapping
+(&#x22;p[style-name=\&#x27;Title\&#x27;] =&#x3e; h1&#x22;)&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+* Set the `styleId` property instead of the `styleName` property
+
+* Set the `styleName` property to the name of the style, rather than the ID
+
+### 0.2.0
+
+The function `mammoth.style()` was renamed to `mammoth.<span class="apidocCodeKeywordSpan">styleMapping</span>()`.
+
+## Acknowledgements
+
+Thanks to the following people for their contributions to Mammoth:
+
+* [Craig Leinoff](https://github.com/Offlein):
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.style_reader" id="apidoc.module.mammoth.style_reader">module mammoth.style_reader</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.style_reader.readDocumentMatcher" id="apidoc.element.mammoth.style_reader.readDocumentMatcher">
+        function <span class="apidocSignatureSpan">mammoth.style_reader.</span>readDocumentMatcher
+        <span class="apidocSignatureSpan">(string)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readDocumentMatcher(string) {
+    return parseString(documentMatcherRule(), string);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.style_reader.readHtmlPath" id="apidoc.element.mammoth.style_reader.readHtmlPath">
+        function <span class="apidocSignatureSpan">mammoth.style_reader.</span>readHtmlPath
+        <span class="apidocSignatureSpan">(string)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readHtmlPath(string) {
+    return parseString(htmlPathRule(), string);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.style_reader.readStyle" id="apidoc.element.mammoth.style_reader.readStyle">
+        function <span class="apidocSignatureSpan">mammoth.style_reader.</span>readStyle
+        <span class="apidocSignatureSpan">(string)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function readStyle(string) {
+    return parseString(styleRule, string);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.transforms" id="apidoc.module.mammoth.transforms">module mammoth.transforms</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms._elements" id="apidoc.element.mammoth.transforms._elements">
+        function <span class="apidocSignatureSpan">mammoth.transforms.</span>_elements
+        <span class="apidocSignatureSpan">(transform)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function elements(transform) {
+    return function transformElement(element) {
+        if (element.children) {
+            var children = _.map(element.children, transformElement);
+            element = _.extend(element, {children: children});
+        }
+        return transform(element);
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms.getDescendants" id="apidoc.element.mammoth.transforms.getDescendants">
+        function <span class="apidocSignatureSpan">mammoth.transforms.</span>getDescendants
+        <span class="apidocSignatureSpan">(element)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getDescendants(element) {
+    var descendants = [];
+
+    visitDescendants(element, function(descendant) {
+        descendants.push(descendant);
+    });
+
+    return descendants;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### `mammoth.transforms.run(transformRun)`
+
+Returns a function that can be used as the `transformDocument` option.
+This will apply the function `transformRun` to each run element.
+`transformRun` should return the new run.
+
+#### `mammoth.transforms.<span class="apidocCodeKeywordSpan">getDescendants</span>(element)`
+
+Gets all descendants of an element.
+
+#### `mammoth.transforms.getDescendantsOfType(element, type)`
+
+Gets all descendants of a particular type of an element.
+For instance, to get all runs within an element `paragraph`:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms.getDescendantsOfType" id="apidoc.element.mammoth.transforms.getDescendantsOfType">
+        function <span class="apidocSignatureSpan">mammoth.transforms.</span>getDescendantsOfType
+        <span class="apidocSignatureSpan">(element, type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getDescendantsOfType(element, type) {
+    return getDescendants(element).filter(function(descendant) {
+        return descendant.type === type;
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+```
+
+Or if you want paragraphs that have been explicitly set to use monospace fonts to represent code:
+
+```javascript
+function transformParagraph(paragraph) {
+var runs = mammoth.transforms.<span class="apidocCodeKeywordSpan">getDescendantsOfType</span>(paragraph, &#x22;run&#x22;);
+var isMatch = runs.length &#x3e; 0 &#x26;&#x26; runs.every(function(run) {
+    return run.font &#x26;&#x26; fonts.indexOf(run.font.toLowerCase()) !== -1;
+});
+if (isMatch) {
+    return {
+        ...paragraph,
+        styleId: &#x22;code&#x22;,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms.paragraph" id="apidoc.element.mammoth.transforms.paragraph">
+        function <span class="apidocSignatureSpan">mammoth.transforms.</span>paragraph
+        <span class="apidocSignatureSpan">(transform)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function paragraph(transform) {
+    return elementsOfType(&#x22;paragraph&#x22;, transform);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return {...element, styleId: &#x22;Heading2&#x22;};
+    } else {
+        return element;
+    }
+}
+
+var options = {
+    transformDocument: mammoth.transforms.<span class="apidocCodeKeywordSpan">paragraph</span>(transformParagraph)
+};
+```
+
+Or if you want paragraphs that have been explicitly set to use monospace fonts to represent code:
+
+```javascript
+function transformParagraph(paragraph) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms.run" id="apidoc.element.mammoth.transforms.run">
+        function <span class="apidocSignatureSpan">mammoth.transforms.</span>run
+        <span class="apidocSignatureSpan">(transform)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function run(transform) {
+    return elementsOfType(&#x22;run&#x22;, transform);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### `mammoth.transforms.paragraph(transformParagraph)`
+
+Returns a function that can be used as the `transformDocument` option.
+This will apply the function `transformParagraph` to each paragraph element.
+`transformParagraph` should return the new paragraph.
+
+#### `mammoth.transforms.<span class="apidocCodeKeywordSpan">run</span>(transformRun)`
+
+Returns a function that can be used as the `transformDocument` option.
+This will apply the function `transformRun` to each run element.
+`transformRun` should return the new run.
+
+#### `mammoth.transforms.getDescendants(element)`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.transforms._elements" id="apidoc.module.mammoth.transforms._elements">module mammoth.transforms._elements</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms._elements._elements" id="apidoc.element.mammoth.transforms._elements._elements">
+        function <span class="apidocSignatureSpan">mammoth.transforms.</span>_elements
+        <span class="apidocSignatureSpan">(transform)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function elements(transform) {
+    return function transformElement(element) {
+        if (element.children) {
+            var children = _.map(element.children, transformElement);
+            element = _.extend(element, {children: children});
+        }
+        return transform(element);
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.transforms.getDescendants" id="apidoc.module.mammoth.transforms.getDescendants">module mammoth.transforms.getDescendants</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms.getDescendants.getDescendants" id="apidoc.element.mammoth.transforms.getDescendants.getDescendants">
+        function <span class="apidocSignatureSpan">mammoth.transforms.</span>getDescendants
+        <span class="apidocSignatureSpan">(element)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getDescendants(element) {
+    var descendants = [];
+
+    visitDescendants(element, function(descendant) {
+        descendants.push(descendant);
+    });
+
+    return descendants;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### `mammoth.transforms.run(transformRun)`
+
+Returns a function that can be used as the `transformDocument` option.
+This will apply the function `transformRun` to each run element.
+`transformRun` should return the new run.
+
+#### `mammoth.transforms.<span class="apidocCodeKeywordSpan">getDescendants</span>(element)`
+
+Gets all descendants of an element.
+
+#### `mammoth.transforms.getDescendantsOfType(element, type)`
+
+Gets all descendants of a particular type of an element.
+For instance, to get all runs within an element `paragraph`:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.transforms.getDescendantsOfType" id="apidoc.module.mammoth.transforms.getDescendantsOfType">module mammoth.transforms.getDescendantsOfType</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms.getDescendantsOfType.getDescendantsOfType" id="apidoc.element.mammoth.transforms.getDescendantsOfType.getDescendantsOfType">
+        function <span class="apidocSignatureSpan">mammoth.transforms.</span>getDescendantsOfType
+        <span class="apidocSignatureSpan">(element, type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getDescendantsOfType(element, type) {
+    return getDescendants(element).filter(function(descendant) {
+        return descendant.type === type;
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+```
+
+Or if you want paragraphs that have been explicitly set to use monospace fonts to represent code:
+
+```javascript
+function transformParagraph(paragraph) {
+var runs = mammoth.transforms.<span class="apidocCodeKeywordSpan">getDescendantsOfType</span>(paragraph, &#x22;run&#x22;);
+var isMatch = runs.length &#x3e; 0 &#x26;&#x26; runs.every(function(run) {
+    return run.font &#x26;&#x26; fonts.indexOf(run.font.toLowerCase()) !== -1;
+});
+if (isMatch) {
+    return {
+        ...paragraph,
+        styleId: &#x22;code&#x22;,
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.transforms.paragraph" id="apidoc.module.mammoth.transforms.paragraph">module mammoth.transforms.paragraph</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms.paragraph.paragraph" id="apidoc.element.mammoth.transforms.paragraph.paragraph">
+        function <span class="apidocSignatureSpan">mammoth.transforms.</span>paragraph
+        <span class="apidocSignatureSpan">(transform)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function paragraph(transform) {
+    return elementsOfType(&#x22;paragraph&#x22;, transform);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return {...element, styleId: &#x22;Heading2&#x22;};
+    } else {
+        return element;
+    }
+}
+
+var options = {
+    transformDocument: mammoth.transforms.<span class="apidocCodeKeywordSpan">paragraph</span>(transformParagraph)
+};
+```
+
+Or if you want paragraphs that have been explicitly set to use monospace fonts to represent code:
+
+```javascript
+function transformParagraph(paragraph) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.transforms.run" id="apidoc.module.mammoth.transforms.run">module mammoth.transforms.run</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.transforms.run.run" id="apidoc.element.mammoth.transforms.run.run">
+        function <span class="apidocSignatureSpan">mammoth.transforms.</span>run
+        <span class="apidocSignatureSpan">(transform)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function run(transform) {
+    return elementsOfType(&#x22;run&#x22;, transform);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### `mammoth.transforms.paragraph(transformParagraph)`
+
+Returns a function that can be used as the `transformDocument` option.
+This will apply the function `transformParagraph` to each paragraph element.
+`transformParagraph` should return the new paragraph.
+
+#### `mammoth.transforms.<span class="apidocCodeKeywordSpan">run</span>(transformRun)`
+
+Returns a function that can be used as the `transformDocument` option.
+This will apply the function `transformRun` to each run element.
+`transformRun` should return the new run.
+
+#### `mammoth.transforms.getDescendants(element)`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.underline" id="apidoc.module.mammoth.underline">module mammoth.underline</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.underline.element" id="apidoc.element.mammoth.underline.element">
+        function <span class="apidocSignatureSpan">mammoth.underline.</span>element
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function element(name) {
+    return function(html) {
+        return Html.elementWithTag(htmlPaths.element(name), [html]);
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (run.isStrikethrough) {
+    paths.push(findHtmlPathForRunProperty(&#x22;strikethrough&#x22;, &#x22;s&#x22;));
+}
+if (run.isUnderline) {
+    paths.push(findHtmlPathForRunProperty(&#x22;underline&#x22;));
+}
+if (run.verticalAlignment === documents.verticalAlignment.subscript) {
+    paths.push(htmlPaths.<span class="apidocCodeKeywordSpan">element</span>(&#x22;sub&#x22;, {}, {fresh: false}));
+}
+if (run.verticalAlignment === documents.verticalAlignment.superscript) {
+    paths.push(htmlPaths.element(&#x22;sup&#x22;, {}, {fresh: false}));
+}
+if (run.isItalic) {
+    paths.push(findHtmlPathForRunProperty(&#x22;italic&#x22;, &#x22;em&#x22;));
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.underline.element" id="apidoc.module.mammoth.underline.element">module mammoth.underline.element</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.underline.element.element" id="apidoc.element.mammoth.underline.element.element">
+        function <span class="apidocSignatureSpan">mammoth.underline.</span>element
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function element(name) {
+    return function(html) {
+        return Html.elementWithTag(htmlPaths.element(name), [html]);
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (run.isStrikethrough) {
+    paths.push(findHtmlPathForRunProperty(&#x22;strikethrough&#x22;, &#x22;s&#x22;));
+}
+if (run.isUnderline) {
+    paths.push(findHtmlPathForRunProperty(&#x22;underline&#x22;));
+}
+if (run.verticalAlignment === documents.verticalAlignment.subscript) {
+    paths.push(htmlPaths.<span class="apidocCodeKeywordSpan">element</span>(&#x22;sub&#x22;, {}, {fresh: false}));
+}
+if (run.verticalAlignment === documents.verticalAlignment.superscript) {
+    paths.push(htmlPaths.element(&#x22;sup&#x22;, {}, {fresh: false}));
+}
+if (run.isItalic) {
+    paths.push(findHtmlPathForRunProperty(&#x22;italic&#x22;, &#x22;em&#x22;));
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.unzip" id="apidoc.module.mammoth.unzip">module mammoth.unzip</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.unzip.openZip" id="apidoc.element.mammoth.unzip.openZip">
+        function <span class="apidocSignatureSpan">mammoth.unzip.</span>openZip
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function openZip(options) {
+    if (options.arrayBuffer) {
+        return promises.resolve(zipfile.openArrayBuffer(options.arrayBuffer));
+    } else {
+        return promises.reject(new Error(&#x22;Could not find file in options&#x22;));
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+markdownOptions.outputFormat = &#x22;markdown&#x22;;
+return convert(input, markdownOptions);
+}
+
+function convert(input, options) {
+options = readOptions(options);
+
+return unzip.<span class="apidocCodeKeywordSpan">openZip</span>(input)
+    .tap(function(docxFile) {
+        return docxStyleMap.readStyleMap(docxFile).then(function(styleMap) {
+            options.embeddedStyleMap = styleMap;
+        });
+    })
+    .then(function(docxFile) {
+        return docxReader.read(docxFile, input)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mammoth.zipfile" id="apidoc.module.mammoth.zipfile">module mammoth.zipfile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mammoth.zipfile.openArrayBuffer" id="apidoc.element.mammoth.zipfile.openArrayBuffer">
+        function <span class="apidocSignatureSpan">mammoth.zipfile.</span>openArrayBuffer
+        <span class="apidocSignatureSpan">(arrayBuffer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function openArrayBuffer(arrayBuffer) {
+    var zipFile = new JSZip(arrayBuffer);
+    function exists(name) {
+        return zipFile.file(name) !== null;
+    }
+
+    function read(name, encoding) {
+        var array = zipFile.file(name).asUint8Array();
+        var buffer = new Buffer(array);
+        if (encoding) {
+            return promises.when(buffer.toString(encoding));
+        } else {
+            return promises.when(buffer);
+        }
+    }
+
+    function write(name, contents) {
+        zipFile.file(name, contents);
+    }
+
+    function toBuffer() {
+        return zipFile.generate({type: &#x22;nodebuffer&#x22;});
+    }
+
+    return {
+        exists: exists,
+        read: read,
+        write: write,
+        toBuffer: toBuffer
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var promises = require(&#x22;../lib/promises&#x22;);
+var zipfile = require(&#x22;../lib/zipfile&#x22;);
+
+exports.openZip = openZip;
+
+function openZip(options) {
+    if (options.arrayBuffer) {
+        return promises.resolve(zipfile.<span class="apidocCodeKeywordSpan">openArrayBuffer</span>(options.arrayBuffer));
+    } else {
+        return promises.reject(new Error(&#x22;Could not find file in options&#x22;));
+    }
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
